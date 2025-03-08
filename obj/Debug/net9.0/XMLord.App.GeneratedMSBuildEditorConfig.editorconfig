@@ -24,5 +24,14 @@ build_property.EnableCodeStyleSeverity =
 [D:/Documents/Sorted/Freizeit/Bannerlord Mods/XMLord.App/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[D:/Documents/Sorted/Freizeit/Bannerlord Mods/XMLord.App/Assets/Icons.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[D:/Documents/Sorted/Freizeit/Bannerlord Mods/XMLord.App/Views/EditorPageView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [D:/Documents/Sorted/Freizeit/Bannerlord Mods/XMLord.App/Views/MainWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[D:/Documents/Sorted/Freizeit/Bannerlord Mods/XMLord.App/Views/SettingsPageView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
