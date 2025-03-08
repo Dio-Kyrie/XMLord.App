@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("XMLord.App")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b7d53a66d94d12554ded7c98e0e97cf6850c5805")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5505969d58fa768e82191f3538f3484ee9833441")]
 [assembly: System.Reflection.AssemblyProductAttribute("XMLord.App")]
 [assembly: System.Reflection.AssemblyTitleAttribute("XMLord.App")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

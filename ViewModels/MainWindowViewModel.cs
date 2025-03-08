@@ -14,7 +14,7 @@ public partial class MainWindowViewModel : ViewModelBase
     // Default state of the pane.
     [ObservableProperty] private bool _isPaneOpen = true;
     // Default page of the pane.
-    [ObservableProperty] private ViewModelBase _currentPage = new EditorPageViewModel();
+    [ObservableProperty] private ViewModelBase _currentPage = new ModulesPageViewModel();
     // Tells which page of the pane is selected at the moment.
     [ObservableProperty] private ListBoxItemTemplate? _selectedListBoxItem;
 
@@ -33,8 +33,10 @@ public partial class MainWindowViewModel : ViewModelBase
      */
     public ObservableCollection<ListBoxItemTemplate> ListBoxItems { get; } =
     [
+        new ListBoxItemTemplate(typeof(ModulesPageViewModel), "LayerRegular"),
         new ListBoxItemTemplate(typeof(EditorPageViewModel), "EditSettingsRegular"),
-        new ListBoxItemTemplate(typeof(SettingsPageViewModel), "LauncherSettingsRegular")
+        new ListBoxItemTemplate(typeof(SettingsPageViewModel), "LauncherSettingsRegular"),
+        new ListBoxItemTemplate(typeof(HelpPageViewModel), "ChatHelpRegular"),
     ];
     
     // TogglePaneOpen changes state of the pane open/close.

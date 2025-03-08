@@ -4,5 +4,26 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="XMLord.App.Views.SettingsPageView">
-    Settings Page
+    <SplitView IsPaneOpen="True"
+               OpenPaneLength="50"
+               DisplayMode="Inline"
+               PanePlacement="Right">
+        <SplitView.Pane>
+            <StackPanel Spacing="5"
+                        Margin="5">
+                
+            </StackPanel>
+        </SplitView.Pane>
+        <SplitView.Content>
+            <TabControl Margin="0 16"
+                        TabStripPlacement="Top">
+                <TabItem Header="General">
+                    
+                </TabItem>
+                <TabItem Header="Defaults">
+                    
+                </TabItem>
+            </TabControl>
+        </SplitView.Content>
+    </SplitView>
 </UserControl>
