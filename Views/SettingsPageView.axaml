@@ -9,9 +9,22 @@
                DisplayMode="Inline"
                PanePlacement="Right">
         <SplitView.Pane>
-            <StackPanel Spacing="5"
-                        Margin="5">
-                
+            <StackPanel Spacing="35"
+                        Margin="5"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+                <Button ToolTip.Tip="Save all changes"
+                        ToolTip.Placement="Left">
+                    <PathIcon Data="{StaticResource SaveRegular}"></PathIcon>
+                </Button>
+                <Button ToolTip.Tip="Reset all to default settings"
+                        ToolTip.Placement="Left">
+                    <PathIcon Data="{StaticResource ArrowUndoRegular}"></PathIcon>
+                </Button>
+                <Button ToolTip.Tip="Cancel all unsaved changes"
+                        ToolTip.Placement="Left">
+                    <PathIcon Data="{StaticResource DismissRegular}"></PathIcon>
+                </Button>
             </StackPanel>
         </SplitView.Pane>
         <SplitView.Content>
@@ -20,7 +33,10 @@
                 <TabItem Header="General">
                     
                 </TabItem>
-                <TabItem Header="Defaults">
+                <TabItem Header="Appearance">
+                    
+                </TabItem>
+                <TabItem Header="Autofill">
                     
                 </TabItem>
             </TabControl>
