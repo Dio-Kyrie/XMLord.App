@@ -1,13 +1,27 @@
-using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
+using Avalonia.Interactivity;
+using Avalonia.VisualTree;
+using XMLord.App.ViewModels;
 
-namespace XMLord.App.Views;
-
-public partial class EditorPageView : UserControl
+namespace XMLord.App.Views
 {
-    public EditorPageView()
+    public partial class EditorPageView : UserControl
     {
-        InitializeComponent();
+        public EditorPageView()
+        {
+            InitializeComponent();
+        }
+
+        private async void OnSelectFileClick(object? sender, RoutedEventArgs e)
+        {
+            if (DataContext is EditorPageViewModel vm)
+            {
+                var window = this.GetVisualRoot() as Window; // Get the parent window
+                if (window != null)
+                {
+                    await vm.PickFileAsync(window);
+                }
+            }
+        }
     }
 }
