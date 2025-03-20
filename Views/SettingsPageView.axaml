@@ -2,43 +2,74 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:XMLord.App.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="XMLord.App.Views.SettingsPageView">
+             x:Class="XMLord.App.Views.SettingsPageView"
+             x:DataType="vm:SettingsPageViewModel">
+
     <SplitView IsPaneOpen="True"
                OpenPaneLength="50"
                DisplayMode="Inline"
                PanePlacement="Right">
+        
+        <!-- Right Pane: Save, Reset, Cancel Buttons -->
         <SplitView.Pane>
             <StackPanel Spacing="35"
                         Margin="5"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center">
                 <Button ToolTip.Tip="Save all changes"
-                        ToolTip.Placement="Left">
-                    <PathIcon Data="{StaticResource SaveRegular}"></PathIcon>
+                        ToolTip.Placement="Left"
+                        Command="{Binding SaveSettings}">
+                    <TextBlock Text="💾 Save" />
                 </Button>
                 <Button ToolTip.Tip="Reset all to default settings"
-                        ToolTip.Placement="Left">
-                    <PathIcon Data="{StaticResource ArrowUndoRegular}"></PathIcon>
+                        ToolTip.Placement="Left"
+                        Command="{Binding ResetToDefault}">
+                    <TextBlock Text="🔄 Reset" />
                 </Button>
                 <Button ToolTip.Tip="Cancel all unsaved changes"
-                        ToolTip.Placement="Left">
-                    <PathIcon Data="{StaticResource DismissRegular}"></PathIcon>
+                        ToolTip.Placement="Left"
+                        Command="{Binding ResetToCurrent}">
+                    <TextBlock Text="❌ Cancel" />
                 </Button>
             </StackPanel>
         </SplitView.Pane>
+
+        <!-- Content Area: Tabs -->
         <SplitView.Content>
             <TabControl Margin="0 16"
                         TabStripPlacement="Top">
+                
+                <!-- General Settings Tab -->
                 <TabItem Header="General">
-                    
+                    <StackPanel Margin="10">
+                        <TextBlock Text="Game Folder:" FontWeight="Bold" />
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox Text="{Binding GameFolderPathTemp, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" Width="300" />
+                            <Button Content="Select Folder" 
+                                    Command="{Binding PickGameFolderAsync}" 
+                                    CommandParameter="{Binding $parent[Window]}"/>
+                        </StackPanel>
+                    </StackPanel>
                 </TabItem>
+
+                <!-- Appearance Settings Tab -->
                 <TabItem Header="Appearance">
-                    
+                    <StackPanel Margin="10">
+                        <TextBlock Text="Theme:" FontWeight="Bold" />
+                        <Button Content="{Binding ThemeToggleText}" Command="{Binding ToggleTheme}" />
+                    </StackPanel>
                 </TabItem>
+
+                <!-- Autofill Settings Tab -->
                 <TabItem Header="Autofill">
-                    
+                    <StackPanel Margin="10">
+                        <TextBlock Text="Default Author Name:" FontWeight="Bold" />
+                        <TextBox Text="{Binding AuthorNameTemp, UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
                 </TabItem>
+
             </TabControl>
         </SplitView.Content>
     </SplitView>
