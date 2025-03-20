@@ -16,12 +16,10 @@ namespace XMLord.App.ViewModels
         private const string CurrentSettingsPath = "current_settings.json";
 
         // Fields for storing saved settings
-        private string _gameFolderPath = "C:\\Games\\Bannerlord"; 
-        private string _authorName = "Default Author";
+        private string _gameFolderPath = "";
 
         // Observable properties for UI binding
         [ObservableProperty] private string _gameFolderPathTemp = string.Empty;
-        [ObservableProperty] private string _authorNameTemp = string.Empty;
         [ObservableProperty] private string _themeToggleText = string.Empty;
 
         public SettingsPageViewModel()
@@ -41,8 +39,7 @@ namespace XMLord.App.ViewModels
                 // Create default settings file
                 var defaultSettings = new SettingsData
                 {
-                    GameFolderPath = "C:\\Games\\Bannerlord",
-                    AuthorName = "Default Author"
+                    GameFolderPath = ""
                 };
                 File.WriteAllText(DefaultSettingsPath, JsonSerializer.Serialize(defaultSettings, new JsonSerializerOptions { WriteIndented = true }));
             }
@@ -57,7 +54,6 @@ namespace XMLord.App.ViewModels
             if (settings != null)
             {
                 _gameFolderPath = settings.GameFolderPath;
-                _authorName = settings.AuthorName;
             }
 
             ResetToCurrent();
@@ -70,12 +66,10 @@ namespace XMLord.App.ViewModels
         public void SaveSettings()
         {
             _gameFolderPath = GameFolderPathTemp;
-            _authorName = AuthorNameTemp;
 
             var settings = new SettingsData
             {
-                GameFolderPath = _gameFolderPath,
-                AuthorName = _authorName
+                GameFolderPath = _gameFolderPath
             };
 
             var json = JsonSerializer.Serialize(settings, new JsonSerializerOptions { WriteIndented = true });
@@ -100,7 +94,6 @@ namespace XMLord.App.ViewModels
         public void ResetToCurrent()
         {
             GameFolderPathTemp = _gameFolderPath;
-            AuthorNameTemp = _authorName;
         }
 
         /// <summary>

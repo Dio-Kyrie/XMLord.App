@@ -61,15 +61,6 @@
                         <Button Content="{Binding ThemeToggleText}" Command="{Binding ToggleTheme}" />
                     </StackPanel>
                 </TabItem>
-
-                <!-- Autofill Settings Tab -->
-                <TabItem Header="Autofill">
-                    <StackPanel Margin="10">
-                        <TextBlock Text="Default Author Name:" FontWeight="Bold" />
-                        <TextBox Text="{Binding AuthorNameTemp, UpdateSourceTrigger=PropertyChanged}" />
-                    </StackPanel>
-                </TabItem>
-
             </TabControl>
         </SplitView.Content>
     </SplitView>
