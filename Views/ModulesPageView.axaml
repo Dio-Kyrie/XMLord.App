@@ -2,7 +2,35 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="XMLord.App.Views.ModulesPageView">
-    Modules Page
+             xmlns:vm="clr-namespace:XMLord.App.ViewModels"
+             mc:Ignorable="d"
+             d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="XMLord.App.Views.ModulesPageView"
+             x:DataType="vm:ModulesPageViewModel">
+
+    <TabControl>
+        <!-- The "+" tab that will show options to create or open modules -->
+        <TabItem Header="+" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            <StackPanel>
+                <Button Content="Create Module" Command="{Binding CreateModule}" />
+                <Button Content="Open Module" Command="{Binding OpenModule}" />
+            </StackPanel>
+        </TabItem>
+
+        <!-- Tab items for opened modules -->
+        <TabControl.ItemTemplate>
+            <DataTemplate>
+                <TabItem Header="{Binding Name}">
+                    <StackPanel>
+                        <TextBlock Text="{Binding Name}" />
+                    </StackPanel>
+                </TabItem>
+            </DataTemplate>
+        </TabControl.ItemTemplate>
+
+        <!-- Bind the opened modules to the TabControl -->
+        <TabControl.ItemsSource>
+            <Binding Path="OpenedModules" />
+        </TabControl.ItemsSource>
+    </TabControl>
 </UserControl>
